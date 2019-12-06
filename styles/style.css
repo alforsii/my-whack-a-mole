@@ -6,14 +6,17 @@
 }
 
 .row {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 33%;
   width: 100%;
   display: flex;
 }
 
 .col {
-  border: 1px solid black;
+  background: url('../img/mole-dom2.gif') no-repeat -20px 15px; /*these x and y*/
+  background-size: 330px;
+  /* border: 1px solid black; */
+  background-color: chartreuse;
   width: 33.3%;
   height: 100%;
   display: flex;
@@ -27,6 +30,7 @@
   background-color: black;
   border-radius: 50%;
 }
+
 /* img {
   background: chartreuse;
 } */

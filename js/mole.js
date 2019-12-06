@@ -1,8 +1,8 @@
 const mole = { name: 'Mole', src: './img/mole2.png' };
 const moleImg = new Image();
 moleImg.src = mole.src;
-moleImg.style.width = '130px';
-moleImg.style.height = '100px';
+moleImg.style.width = '120px';
+moleImg.style.height = '90px';
 
 // const aMole = { name: 'Mole', src: './img/mole2.png' };
 

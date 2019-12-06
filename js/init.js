@@ -1,12 +1,10 @@
 window.addEventListener('load', () => {
-  const game = new Game();
+  start();
 
-  game.start();
-  function animation() {
-    requestAnimationFrame(animation);
-  }
-
-  //   animation();
+  moleImg.onclick = () => {
+    moleImg.remove();
+    randomBox.appendChild(explosionImg);
+  };
 
   // let html = '';
   // for (let i = 1; i < 201; i++) {
