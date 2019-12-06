@@ -1,17 +1,27 @@
+//get reference to the box
 const box = document.getElementsByClassName('col');
-const status = { whacked: true, noWhacked: false };
-const explosion = { name: 'ExplosionImg', src: './img/theExplosion.gif' };
-const explosionImg = new Image();
-explosionImg.src = explosion.src;
-explosionImg.style.width = '120px';
-explosionImg.style.height = '90px';
-let randomBox;
-const score = document.createElement('h2');
-score.innerHTML = 'Score : 20';
+//center Tag where we need to insert score Tag as firstChild
 const centerTag = document.querySelector('center');
+//Create score tag
+let score = document.createElement('h2');
+score.innerHTML = 'Score: 20';
+//Insert score tag into center Tag
 centerTag.insertBefore(score, centerTag.firstChild);
+//set status for score update.
+let ifMoleWhacked = false;
+//Make random box global to be able to remove and insert explosion to the same box.
+let randomBox;
+//Starting score.
+let newScore = 20;
 
 function start() {
+  if (!ifMoleWhacked) {
+    //decrease score if mole survived.
+    newScore -= 1;
+  }
+  updateScore();
+  //remove the mole to make disappear for a while
+  moleImg.remove();
   let randomTime = Math.floor(Math.random() * 3000);
   if (randomTime > 2500 || randomTime < 250) {
     setTimeout(start, randomTime);
@@ -19,10 +29,18 @@ function start() {
   }
   let index = Math.floor(Math.random() * box.length);
   randomBox = box[index];
-
+  ifMoleWhacked = false;
+  //remove explosion after it's being explode before next mole appearance
   explosionImg.remove();
+  //Create the mole in random box all the time.
   randomBox.appendChild(moleImg);
+  //set timeOut to callback start() after some time.
   setTimeout(start, randomTime);
+}
+
+//update score
+function updateScore() {
+  score.innerHTML = `Score: ${newScore}`;
 }
 // // background added through CSS.
 // function background() {
