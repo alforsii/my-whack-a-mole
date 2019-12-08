@@ -5,8 +5,11 @@ const centerTag = document.querySelector('center');
 //Create score tag
 let score = document.createElement('h2');
 score.innerHTML = 'Score: 20';
-//Insert score tag into center Tag
-centerTag.insertBefore(score, centerTag.firstChild);
+//Insert score tag into center Tag:
+//1.insert by reference
+// centerTag.insertBefore(score, centerTag.firstChild);
+//2.or inserts using direct id name without reference.
+centerTag.insertBefore(score, gameBoard);
 //set status for score update.
 let ifMoleWhacked = false;
 //Make random box global to be able to remove and insert explosion to the same box.
@@ -29,6 +32,7 @@ function start() {
   }
   let index = Math.floor(Math.random() * box.length);
   randomBox = box[index];
+  //switch the status for next cycle
   ifMoleWhacked = false;
   //remove explosion after it's being explode before next mole appearance
   explosionImg.remove();
